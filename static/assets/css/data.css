@@ -1,0 +1,23 @@
+.dataTables_length label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* Matn va dropdown orasidagi masofa */
+  }
+  
+  .dataTables_length select {
+    margin-left: 0.5rem;
+    padding: 4px;
+  }
+  
+  .table-responsive {
+    overflow: hidden;
+    /* Skrollni o'chirish uchun */
+  }
+  
+  #scrollVertical_wrapper .dataTables_scrollBody {
+    overflow-y: visible !important;
+    /* Skrollni ko'rinmas holatga keltirish */
+    height: auto !important;
+    /* Jadval balandligini avtomatik sozlash */
+  }

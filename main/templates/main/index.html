@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon.ico' %}">
+    <title>Бухоро НҚИЗ телефон рақамлари</title>
+
+    <!-- Meta -->
+    <meta name="description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <!-- *************
+		************ CSS Files *************
+	  ************* -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/remix/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.min.css' %}">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+    <!-- DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
+
+    <!-- *************
+		************ Vendor Css Files *************
+	  ************ -->
+
+    <!-- Scrollbar CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendor/overlay-scroll/OverlayScrollbars.min.css' %}">
+
+    <!-- Date Range CSS -->
+    <link rel="stylesheet" href="{% static 'assets/vendor/daterange/daterange.css' %}">
+
+    <!-- Data Tables -->
+    <link rel="stylesheet" href="{% static 'assets/vendor/datatables/dataTables.bs5.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/datatables/dataTables.bs5-custom.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/datatables/buttons/dataTables.bs5-custom.css' %}">
+    <script src="https://unpkg.com/imask"></script>
+
+    <style>
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            margin: 0;
+            /* Tugmalar orasidagi masofani aniqlang */
+            padding: 0;
+
+            /* Tugmalarning ichki bo'shlig'ini sozlang */
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: #007bff;
+            /* Hover holati uchun rang */
+            color: white;
+            /* Matn rangi */
+        }
+
+        .paginate_button:hover {
+            background-color: red;
+        }
+
+        .dataTables_length label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* Matn va dropdown orasidagi masofa */
+        }
+
+        .dataTables_length select {
+            margin-left: 0.5rem;
+            padding: 4px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="{% static 'brand.png' %}" alt=""
+        style="position: fixed; top: 0; bottom: 0; min-height: 100%; max-width: 50px;">
+
+    <div class="row gx-3 " style="margin-left: 40px;">
+        <div class="col-sm-12">
+
+            <marquee class="ml-5">
+                <p class="pt-3">
+                    <!-- <svg stroke="currentColor" fill="red" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
+                        stroke-linejoin="round" class="inline-block font-semibold text-xl mx-2 text text-white "
+                        height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg> -->
+                    <span class="h4 text-dark">Коммутатор (107, 200) </span>
+                    <span class="h4 text-white">&nbsp&nbsp</span>
+                    <span class="h4 text-danger">(+99865) 364-42-50</span>
+                    <span class="h4 text-white">&nbsp&nbsp</span>
+                    <span class="h4 text-danger">(+99865) 505-42-50</span>
+                    <span class="h4 text-white"> &nbsp&nbsp </span>
+                </p>
+            </marquee>
+
+
+            <div class="m-3">
+
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="row d-flex align-items-center justify-content-left">
+                        <div class="col-3">
+
+                            <a href={% url 'home' %}>
+                                <img src="{% static 'logo.png' %}" class="w-100" alt="">
+                            </a>
+
+                        </div>
+                        <div class="col-4">
+                            <!-- <h5 class="card-title">Бухоро НҚИЗ телефон рақамлари</h5> -->
+                        </div>
+                    </div>
+
+                    {% if request.user.is_authenticated %}
+                    <a href="{% url 'sign_in' %}" class="btn  ms-auto"
+                        style="background-color: #03A3DF; color: white;">Выйти</a>
+                    {% else %}
+                    <a href="{% url 'sign_out' %}" class="btn  ms-auto"
+                        style="background-color: #03A3DF; color: white;">Войти</a>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div>
+                    <h3 class="card-title text-center m-2">Телефонные номера Бухарского НПЗ</h3>
+                </div>
+
+                <div class="card-body pt-0">
+
+                    <!-- Table starts -->
+                    <div class="table-responsive mt-3">
+
+                        <a href="{% url 'phones' %}" class="btn btn-success mx-auto " style="background-color: #03A3DF; border: none;">
+                            Просмотр номеров
+                        </a>
+                    </div>
+
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+                        rel="stylesheet"
+                        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+                        crossorigin="anonymous">
+
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/moment.min.js' %}"></script>
+
+    <!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+    <!-- Overlay Scroll JS -->
+    <script src="{% static 'assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/overlay-scroll/custom-scrollbar.js' %}"></script>
+
+    <!-- Date Range JS -->
+    <script src="{% static 'assets/vendor/daterange/daterange.js' %}"></script>
+    <script src="{% static 'assets/vendor/daterange/custom-daterange.js' %}"></script>
+
+    <!-- Apex Charts -->
+    <script src="{% static 'assets/vendor/apex/apexcharts.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/apex/custom/home/patients.js' %}"></script>
+    <script src="{% static 'assets/vendor/apex/custom/home/department-income.js' %}"></script>
+    <script src="{% static 'assets/vendor/apex/custom/home/patients-age.js' %}"></script>
+    <script src="{% static 'assets/vendor/apex/custom/home/sparklines.js' %}"></script>
+
+    <!-- Data Tables -->
+    <script src="{% static 'assets/vendor/datatables/dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/datatables/dataTables.bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/datatables/custom/custom-datatables.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+
+            if ($.fn.DataTable.isDataTable('#scrollVertical')) {
+                $('#scrollVertical').DataTable().destroy();
+            }
+
+
+            $('#scrollVertical').DataTable({
+                language: {
+                    lengthMenu: 'Показать: <select>' +
+                        '<option value="10">10</option>' +
+                        '<option value="25">25</option>' +
+                        '<option value="50">50</option>' +
+                        '<option value="100">100</option>' +
+                        '</select>',
+                    info: "Показано с _START_ по _END_ из _TOTAL_ записей",
+                    search: "Поиск:",
+                    paginate: {
+                        first: "Биринчи",
+                        last: "Последний",
+                        next: "Следующий",
+                        previous: "Предыдущий"
+                    },
+                    zeroRecords: "Информация не найдена"
+                },
+                scrollY: "100vh",
+                scrollCollapse: true,
+                paging: true
+            });
+        })
+    </script>
+
+    <!-- Custom JS files -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+
+
+
+</body>
+
+</html>
