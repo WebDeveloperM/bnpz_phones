@@ -6,7 +6,7 @@ from .models import *
 class DepartamentAdmin(admin.ModelAdmin):
     list_display = ['name']
     list_filter = ['name']
-    fields = ('name', 'nickname_1' 'nickname_2', 'nickname_3', 'nickname_4', 'nickname_5', 'nickname_6', 'nickname_7', 'nickname_8', 'nickname_9', 'nickname_10')
+    fields = ('name', 'nickname_1', 'nickname_2', 'nickname_3', 'nickname_4', 'nickname_5', 'nickname_6', 'nickname_7', 'nickname_8', 'nickname_9', 'nickname_10')
 
 admin.site.register(Section)
 

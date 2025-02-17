@@ -103,7 +103,8 @@
 
 <body>
 
-    <img src="{% static 'brand.png' %}" alt="" style="position: fixed; top: 0; bottom: 0; min-height: 100%; max-width: 50px;">
+    <img src="{% static 'brand.png' %}" alt=""
+        style="position: fixed; top: 0; bottom: 0; min-height: 100%; max-width: 50px;">
 
     <div class="row gx-1 " style="margin-left: 40px;">
         <div class="col-sm-12">
@@ -137,10 +138,10 @@
                     </div>
 
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'sign_in' %}" class="btn  ms-auto"
-                        style="background-color: #03A3DF; color: white;">Выйти</a>
+                    <a href="{% url 'sign_out' %}" class="btn ms-auto"
+                        style="background-color: #e90000; color: white;">Выход</a>
                     {% else %}
-                    <a href="{% url 'sign_out' %}" class="btn  ms-auto"
+                    <a href="{% url 'sign_in' %}" class="btn ms-auto"
                         style="background-color: #03A3DF; color: white;">Войти</a>
 
                     {% endif %}
@@ -166,7 +167,7 @@
 
                                 <th class="text-center" style="background-color: #03A3DF; color: white;">Должность</th>
                                 <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-                                
+
                                 <th class="text-center" style="background-color: #03A3DF; color: white;">Цех</th>
                                 <th class="text-center" style="background-color: #03A3DF; color: white;">Отдел</th>
                                 <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
@@ -208,8 +209,9 @@
                                 <td class="text-center original-text-jobs">{{ i.job_title|default_if_none:" " }}</td>
                                 <td class="text-center d-none translated-text-jobs"></td>
 
-                                <td class="text-center original-text-depart">{{ i.section.departament.name|default_if_none:" " }}</td>
-                                <td class="text-center original-text-section">{{ i.section.name|default_if_none:" " }}</td>
+                                <td class="text-center original-text-depart">{{i.section.departament | default_if_none:" " }}</td>
+                                <td class="text-center original-text-section">{{ i.section.name|default_if_none:" " }}
+                                </td>
                                 <td class="text-center d-none translated-text-depart"></td>
                                 <td class="text-center d-none translated-text-section"></td>
 
@@ -224,11 +226,9 @@
                                 </td>
                                 {% if request.user.is_authenticated %}
                                 <td class="text-center">
-                                    {% if i.is_active_sotki_number %}
                                     {{ i.number_31|default_if_none:" " }} <br>
                                     {{ i.number_32|default_if_none:" " }} <br>
-                                    {{ i.number_33|default_if_none:" " }}
-                                    {% endif %}
+                                    {{ i.number_33|default_if_none:" " }}                                   
                                 </td>
                                 {% endif %}
                                 <td class="text-center d-none ">{{ i.depart.nickname_1 }}</td>

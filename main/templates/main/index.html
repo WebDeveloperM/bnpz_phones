@@ -124,11 +124,11 @@
                     </div>
 
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'sign_in' %}" class="btn  ms-auto"
+                    <a href="{% url 'sign_out' %}" class="btn ms-auto"
                         style="background-color: #03A3DF; color: white;">Выйти</a>
                     {% else %}
-                    <a href="{% url 'sign_out' %}" class="btn  ms-auto"
-                        style="background-color: #03A3DF; color: white;">Войти</a>
+                    <a href="{% url 'sign_in' %}" class="btn ms-auto"
+                        style="background-color: #e90000; color: white;">Войти</a>
 
                     {% endif %}
 

@@ -12,6 +12,7 @@ def home_view(request):
 
 def phones(request):
     phones = Phone.objects.all()
+    print(phones[0].section.departament)
     return render(request, 'main/phones.html', {'page_obj': phones})
 
 
