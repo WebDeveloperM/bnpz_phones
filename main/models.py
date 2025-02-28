@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 
 class Departament(models.Model):
+    number = models.IntegerField(default=1, verbose_name="Порядок")
     name = models.CharField(max_length=255, verbose_name='Название')
     nickname_1 = models.CharField(max_length=255, verbose_name='Nickname 1', null=True, blank=True)
     nickname_2 = models.CharField(max_length=255, verbose_name='Nickname 2', null=True, blank=True)
@@ -27,7 +28,7 @@ class Departament(models.Model):
 
 
 class Section(models.Model):
-    departament = models.ForeignKey(Departament, on_delete=models.CASCADE)
+    departament = models.ForeignKey(Departament, on_delete=models.CASCADE, verbose_name='Цех', related_name='departament')
     name = models.CharField(max_length=255, verbose_name='Название')
     nickname_1 = models.CharField(max_length=255, verbose_name='Nickname 1', null=True, blank=True)
     nickname_2 = models.CharField(max_length=255, verbose_name='Nickname 2', null=True, blank=True)
@@ -43,8 +44,9 @@ class Section(models.Model):
 class Phone(models.Model):
     FIO = models.CharField(max_length=255, verbose_name='Имя и Фамилия')
     job_title = models.CharField(max_length=255, verbose_name='Должность')
-    section = models.ForeignKey(Section, on_delete=models.CASCADE, verbose_name='Отдел')
+    section = models.ForeignKey(Section, on_delete=models.CASCADE, verbose_name='Отдел', related_name='section')
     number_1 = models.CharField(max_length=255, verbose_name='Внутренний номер')
+    is_active_vnut_number = models.BooleanField(default=True, verbose_name='Показать внутренний номер')
     number_21 = models.CharField(max_length=255, verbose_name='Городской номер 1', null=True, blank=True)
     number_22 = models.CharField(max_length=255, verbose_name='Городской номер 2', null=True, blank=True)
     number_23 = models.CharField(max_length=255, verbose_name='Городской номер 3', null=True, blank=True)

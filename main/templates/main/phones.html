@@ -98,328 +98,334 @@
     </style>
 
 
-
 </head>
 
 <body>
 
-    <img src="{% static 'brand.png' %}" alt=""
-        style="position: fixed; top: 0; bottom: 0; min-height: 100%; max-width: 50px;">
+<img src="{% static 'brand.png' %}" alt=""
+     style="position: fixed; top: 0; bottom: 0; min-height: 100%; max-width: 50px;">
 
-    <div class="row gx-1 " style="margin-left: 40px;">
-        <div class="col-sm-12">
+<div class="row gx-1 " style="margin-left: 40px;">
+    <div class="col-sm-12">
 
-            <marquee>
-                <p class="pt-3">
-                    <span class="h4 text-dark">Коммутатор (107, 200) </span>
-                    <span class="h4 text-white">&nbsp&nbsp</span>
-                    <span class="h4 text-danger">(+99865) 364-42-50</span>
-                    <span class="h4 text-white">&nbsp&nbsp</span>
-                    <span class="h4 text-danger">(+99865) 505-42-50</span>
-                    <span class="h4 text-white"> &nbsp&nbsp </span>
-                </p>
-            </marquee>
+        <marquee>
+            <p class="pt-3">
+                <span class="h4 text-dark">Коммутатор (107, 200) </span>
+                <span class="h4 text-white">&nbsp&nbsp</span>
+                <span class="h4 text-danger">(+99865) 364-42-50</span>
+                <span class="h4 text-white">&nbsp&nbsp</span>
+                <span class="h4 text-danger">(+99865) 505-42-50</span>
+                <span class="h4 text-white"> &nbsp&nbsp </span>
+            </p>
+        </marquee>
 
 
-            <div class="m-3 ">
+        <div class="m-3 ">
 
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="row d-flex align-items-center justify-content-left">
-                        <div class="col-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="row d-flex align-items-center justify-content-left">
+                    <div class="col-3">
 
-                            <a href={% url 'home' %}>
-                                <img src="{% static 'logo.png' %}" class="w-100" alt="">
-                            </a>
+                        <a href={% url 'home' %}>
+                            <img src="{% static 'logo.png' %}" class="w-100" alt="">
+                        </a>
 
-                        </div>
-                        <div class="col-4">
-                            <!-- <h5 class="card-title">Бухоро НҚИЗ телефон рақамлари</h5> -->
-                        </div>
                     </div>
+                    <div class="col-4">
+                        <!-- <h5 class="card-title">Бухоро НҚИЗ телефон рақамлари</h5> -->
+                    </div>
+                </div>
 
-                    {% if request.user.is_authenticated %}
+                {% if request.user.is_authenticated %}
                     <a href="{% url 'sign_out' %}" class="btn ms-auto"
-                        style="background-color: #e90000; color: white;">Выход</a>
-                    {% else %}
+                       style="background-color: #e90000; color: white;">Выход</a>
+                {% else %}
                     <a href="{% url 'sign_in' %}" class="btn ms-auto"
-                        style="background-color: #03A3DF; color: white;">Войти</a>
+                       style="background-color: #03A3DF; color: white;">Войти</a>
 
-                    {% endif %}
+                {% endif %}
 
-                </div>
+            </div>
 
 
-                <div>
-                    <h3 class="card-title text-center m-2">Телефонные номера Бухарского НПЗ</h3>
-                </div>
+            <div>
+                <h3 class="card-title text-center m-2">Телефонные номера Бухарского НПЗ</h3>
+            </div>
 
-                <div class="card-body pt-0">
+            <div class="card-body pt-0">
 
-                    <!-- Table starts -->
-                    <!-- <div class="table-responsive mt-3"> -->
-                    <table id="scrollVertical" class="table text-bg-dark truncate m-0 align-middle">
-                        <thead>
-                            <tr>
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">№</th>
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Имя и фамилия
-                                </th>
-                                <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+                <!-- Table starts -->
+                <!-- <div class="table-responsive mt-3"> -->
+                <table id="scrollVertical" class="table text-bg-dark truncate m-0 align-middle">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">№</th>
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">Имя и фамилия
+                        </th>
+                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
 
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Должность</th>
-                                <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">Цех</th>
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">Отдел</th>
+                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
 
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Цех</th>
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Отдел</th>
-                                <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-                                <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Внутренний
-                                    номер</th>
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Городской номер
-                                </th>
-                                {% if request.user.is_authenticated %}
-                                <th class="text-center" style="background-color: #03A3DF; color: white;">Личный номер
-                                </th>
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">Должность</th>
+                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+
+
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">Внутренний
+                            номер
+                        </th>
+                        <th class="text-center" style="background-color: #03A3DF; color: white;">Городской номер
+                        </th>
+                        {% if request.user.is_authenticated %}
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Личный номер
+                            </th>
+                        {% endif %}
+                        <th class="text-center d-none">1</th>
+                        <th class="text-center d-none">2</th>
+                        <th class="text-center d-none">3</th>
+                        <th class="text-center d-none">4</th>
+                        <th class="text-center d-none">5</th>
+                        <th class="text-center d-none">6</th>
+                        <th class="text-center d-none">7</th>
+                        <th class="text-center d-none">8</th>
+                        <th class="text-center d-none">9</th>
+                        <th class="text-center d-none">10</th>
+                        <th class="text-center d-none">num1</th>
+                        <th class="text-center d-none">num2</th>
+                        {% if request.user.is_authenticated %}
+                            <td class="text-center d-none">{{ i.number_2 }}</td>
+                        {% endif %}
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for i in phones %}
+                        <tr>
+                            <td class="text-center">{{ i.FIO | default_if_none:" " }}</td>
+                            <td class="text-center original-text-fio">{{ i.FIO|default_if_none:" " }}</td>
+                            <td class="text-center d-none translated-text-fio"></td>
+
+
+                            <td class="text-center original-text-depart">{{ i.section.departament }}</td>
+                            <td class="text-center original-text-section">{{ i.section.name|default_if_none:" " }}
+                            </td>
+                            <td class="text-center d-none translated-text-depart"></td>
+                            <td class="text-center d-none translated-text-section"></td>
+
+                            <td class="text-center original-text-jobs">{{ i.job_title|default_if_none:" " }}</td>
+                            <td class="text-center d-none translated-text-jobs"></td>
+
+
+                            <td class="text-center">
+                                {% if i.is_active_vnut_number %}
+                                    {{ i.number_1 | default_if_none:" " }}
                                 {% endif %}
-                                <th class="text-center d-none">1</th>
-                                <th class="text-center d-none">2</th>
-                                <th class="text-center d-none">3</th>
-                                <th class="text-center d-none">4</th>
-                                <th class="text-center d-none">5</th>
-                                <th class="text-center d-none">6</th>
-                                <th class="text-center d-none">7</th>
-                                <th class="text-center d-none">8</th>
-                                <th class="text-center d-none">9</th>
-                                <th class="text-center d-none">10</th>
-                                <th class="text-center d-none">num1</th>
-                                <th class="text-center d-none">num2</th>
-                                {% if request.user.is_authenticated %}
-                                <td class="text-center d-none">{{ i.number_2}}</td>
-                                {% endif %}
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {% for i in page_obj %}
-                            <tr>
-                                <td class="text-center">{{ i.pk|default_if_none:" " }}</td>
-                                <td class="text-center original-text-fio">{{ i.FIO|default_if_none:" " }}</td>
-                                <td class="text-center d-none translated-text-fio"></td>
-
-                                <td class="text-center original-text-jobs">{{ i.job_title|default_if_none:" " }}</td>
-                                <td class="text-center d-none translated-text-jobs"></td>
-
-                                <td class="text-center original-text-depart">{{i.section.departament | default_if_none:" " }}</td>
-                                <td class="text-center original-text-section">{{ i.section.name|default_if_none:" " }}
-                                </td>
-                                <td class="text-center d-none translated-text-depart"></td>
-                                <td class="text-center d-none translated-text-section"></td>
-
-                                <td class="text-center">{{ i.number_1|default_if_none:" " }}</td>
-                                <td class="text-center">
-                                    {% if i.is_active_gorod_number %}
+                            </td>
+                            <td class="text-center">
+                                {% if i.is_active_gorod_number %}
                                     {{ i.number_21|default_if_none:" " }} <br>
                                     {{ i.number_22|default_if_none:" " }} <br>
                                     {{ i.number_23|default_if_none:" " }}
-                                    {% endif %}
+                                {% endif %}
 
-                                </td>
-                                {% if request.user.is_authenticated %}
+                            </td>
+                            {% if request.user.is_authenticated %}
                                 <td class="text-center">
                                     {{ i.number_31|default_if_none:" " }} <br>
                                     {{ i.number_32|default_if_none:" " }} <br>
-                                    {{ i.number_33|default_if_none:" " }}                                   
+                                    {{ i.number_33|default_if_none:" " }}
                                 </td>
+                            {% endif %}
+                            <td class="text-center d-none ">{{ i.depart.nickname_1 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_2 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_3 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_4 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_5 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_6 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_7 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_8 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_9 }}</td>
+                            <td class="text-center d-none ">{{ i.depart.nickname_10 }}</td>
+                            <td class="text-center d-none">
+                                {% load phone_filters %}
+                                {{ i.number_1|clean_phone }}
+                            </td>
+                            <td class="text-center d-none">
+                                {% if i.number_21 %}
+                                    {% load phone_filters %}
+                                    {{ i.number_21|clean_phone }} <br>
                                 {% endif %}
-                                <td class="text-center d-none ">{{ i.depart.nickname_1 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_2 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_3 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_4 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_5 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_6 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_7 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_8 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_9 }}</td>
-                                <td class="text-center d-none ">{{ i.depart.nickname_10 }}</td>
-                                <td class="text-center d-none">
-                                    {% load phone_filters %}
-                                    {{i.number_1|clean_phone }}
-                                </td>
-                                <td class="text-center d-none">
-                                    {% if i.number_21 %}
-                                    {% load phone_filters %}
-                                    {{i.number_21|clean_phone }} <br>
-                                    {% endif %}
 
-                                    {% if i.number_22 %}
+                                {% if i.number_22 %}
                                     {% load phone_filters %}
-                                    {{i.number_22|clean_phone }} <br>
-                                    {% endif %}
-
-                                    {% if i.number_23 %}
-                                    {% load phone_filters %}
-                                    {{i.number_23|clean_phone }} <br>
-                                    {% endif %}
-                                </td>
-                                {% if request.user.is_authenticated %}
-                                <td class="text-center d-none">
-
-                                    {% if i.number_31 %}
-                                    {% load phone_filters %}
-                                    {{i.number_31|clean_phone }} <br>
-                                    {% endif %}
-
-                                    {% if i.number_31 %}
-                                    {% load phone_filters %}
-                                    {{i.number_32|clean_phone }} <br>
-                                    {% endif %}
-
-
-                                    {% if i.number_31 %}
-                                    {% load phone_filters %}
-                                    {{i.number_33|clean_phone }} <br>
-                                    {% endif %}
-
-                                </td>
+                                    {{ i.number_22|clean_phone }} <br>
                                 {% endif %}
-                            </tr>
-                            {% endfor %}
+
+                                {% if i.number_23 %}
+                                    {% load phone_filters %}
+                                    {{ i.number_23|clean_phone }} <br>
+                                {% endif %}
+                            </td>
+                            {% if request.user.is_authenticated %}
+                                <td class="text-center d-none">
+
+                                    {% if i.number_31 %}
+                                        {% load phone_filters %}
+                                        {{ i.number_31|clean_phone }} <br>
+                                    {% endif %}
+
+                                    {% if i.number_31 %}
+                                        {% load phone_filters %}
+                                        {{ i.number_32|clean_phone }} <br>
+                                    {% endif %}
 
 
-                        </tbody>
-                    </table>
-                    <!-- </div> -->
+                                    {% if i.number_31 %}
+                                        {% load phone_filters %}
+                                        {{ i.number_33|clean_phone }} <br>
+                                    {% endif %}
+
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
 
 
-
-                    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-                        rel="stylesheet"
-                        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-                        crossorigin="anonymous">
+                    </tbody>
+                </table>
+                <!-- </div> -->
 
 
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+                      rel="stylesheet"
+                      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+                      crossorigin="anonymous">
 
-                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
             </div>
         </div>
     </div>
+</div>
 
 
-    <!-- Required jQuery first, then Bootstrap Bundle JS -->
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/moment.min.js' %}"></script>
+<!-- Required jQuery first, then Bootstrap Bundle JS -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/moment.min.js' %}"></script>
 
-    <!-- *************
-			************ Vendor Js Files *************
-		************* -->
+<!-- *************
+        ************ Vendor Js Files *************
+    ************* -->
 
-    <!-- Overlay Scroll JS -->
-    <script src="{% static 'assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/overlay-scroll/custom-scrollbar.js' %}"></script>
+<!-- Overlay Scroll JS -->
+<script src="{% static 'assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js' %}"></script>
+<script src="{% static 'assets/vendor/overlay-scroll/custom-scrollbar.js' %}"></script>
 
-    <!-- Date Range JS -->
-    <script src="{% static 'assets/vendor/daterange/daterange.js' %}"></script>
-    <script src="{% static 'assets/vendor/daterange/custom-daterange.js' %}"></script>
+<!-- Date Range JS -->
+<script src="{% static 'assets/vendor/daterange/daterange.js' %}"></script>
+<script src="{% static 'assets/vendor/daterange/custom-daterange.js' %}"></script>
 
-    <!-- Apex Charts -->
-    <script src="{% static 'assets/vendor/apex/apexcharts.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/apex/custom/home/patients.js' %}"></script>
-    <script src="{% static 'assets/vendor/apex/custom/home/department-income.js' %}"></script>
-    <script src="{% static 'assets/vendor/apex/custom/home/patients-age.js' %}"></script>
-    <script src="{% static 'assets/vendor/apex/custom/home/sparklines.js' %}"></script>
+<!-- Apex Charts -->
+<script src="{% static 'assets/vendor/apex/apexcharts.min.js' %}"></script>
+<script src="{% static 'assets/vendor/apex/custom/home/patients.js' %}"></script>
+<script src="{% static 'assets/vendor/apex/custom/home/department-income.js' %}"></script>
+<script src="{% static 'assets/vendor/apex/custom/home/patients-age.js' %}"></script>
+<script src="{% static 'assets/vendor/apex/custom/home/sparklines.js' %}"></script>
 
-    <!-- Data Tables -->
-    <script src="{% static 'assets/vendor/datatables/dataTables.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/datatables/dataTables.bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/datatables/custom/custom-datatables.js' %}"></script>
+<!-- Data Tables -->
+<script src="{% static 'assets/vendor/datatables/dataTables.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables/dataTables.bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables/custom/custom-datatables.js' %}"></script>
 
-    <script>
-        $(document).ready(function () {
+<script>
+    $(document).ready(function () {
 
-            if ($.fn.DataTable.isDataTable('#scrollVertical')) {
-                $('#scrollVertical').DataTable().destroy();
-            }
+        if ($.fn.DataTable.isDataTable('#scrollVertical')) {
+            $('#scrollVertical').DataTable().destroy();
+        }
 
 
-            $('#scrollVertical').DataTable({
-                language: {
-                    lengthMenu: 'Показать: <select>' +
-                        '<option value="10">10</option>' +
-                        '<option value="25">25</option>' +
-                        '<option value="50">50</option>' +
-                        '<option value="100">100</option>' +
-                        '</select>',
-                    info: "Показано с _START_ по _END_ из _TOTAL_ записей",
-                    search: "Поиск:",
-                    paginate: {
-                        first: "Биринчи",
-                        last: "Последний",
-                        next: "Следующий",
-                        previous: "Предыдущий"
-                    },
-                    zeroRecords: "Информация не найдена"
+        $('#scrollVertical').DataTable({
+            language: {
+                lengthMenu: 'Показать: <select>' +
+                    '<option value="10">10</option>' +
+                    '<option value="25">25</option>' +
+                    '<option value="50">50</option>' +
+                    '<option value="100">100</option>' +
+                    '</select>',
+                info: "Показано с _START_ по _END_ из _TOTAL_ записей",
+                search: "Поиск:",
+                paginate: {
+                    first: "Биринчи",
+                    last: "Последний",
+                    next: "Следующий",
+                    previous: "Предыдущий"
                 },
-                scrollY: "100vh",
-                scrollCollapse: true,
-                paging: true
-            });
-        })
-    </script>
+                zeroRecords: "Информация не найдена"
+            },
+            scrollY: "100vh",
+            scrollCollapse: true,
+            paging: true
+        });
+    })
+</script>
 
 
-    <!-- Custom JS files -->
-    <script src="{% static 'assets/js/custom.js' %}"></script>
+<!-- Custom JS files -->
+<script src="{% static 'assets/js/custom.js' %}"></script>
 
 
-    <script>
+<script>
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const translitMap = {
-                'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'Yo',
-                'Ж': 'Zh', 'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M',
-                'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U',
-                'Ф': 'F', 'Х': 'X', 'Ц': 'Ts', 'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Shch',
-                'Ъ': '', 'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya',
-                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
-                'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
-                'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
-                'ф': 'f', 'х': 'x', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch',
-                'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
-            };
+    document.addEventListener("DOMContentLoaded", function () {
+        const translitMap = {
+            'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Е': 'E', 'Ё': 'Yo',
+            'Ж': 'Zh', 'З': 'Z', 'И': 'I', 'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M',
+            'Н': 'N', 'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T', 'У': 'U',
+            'Ф': 'F', 'Х': 'X', 'Ц': 'Ts', 'Ч': 'Ch', 'Ш': 'Sh', 'Щ': 'Shch',
+            'Ъ': '', 'Ы': 'Y', 'Ь': '', 'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya',
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
+            'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+            'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+            'ф': 'f', 'х': 'x', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch',
+            'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+        };
 
-            function transliterate(text) {
-                return text.split('').map(char => translitMap[char] || char).join('');
-            }
+        function transliterate(text) {
+            return text.split('').map(char => translitMap[char] || char).join('');
+        }
 
-            document.querySelectorAll("tbody tr").forEach(row => {
-                const originalText = row.querySelector(".original-text-fio").textContent.trim();
-                const translatedText = transliterate(originalText);
-                row.querySelector(".translated-text-fio").textContent = translatedText;
-            });
-
-            document.querySelectorAll("tbody tr").forEach(row => {
-                const originalText = row.querySelector(".original-text-jobs").textContent.trim();
-                const translatedText = transliterate(originalText);
-                row.querySelector(".translated-text-jobs").textContent = translatedText;
-            });
-
-            document.querySelectorAll("tbody tr").forEach(row => {
-                const originalText = row.querySelector(".original-text-depart").textContent.trim();
-                const translatedText = transliterate(originalText);
-                row.querySelector(".translated-text-depart").textContent = translatedText;
-            });
-            document.querySelectorAll("tbody tr").forEach(row => {
-                const originalText = row.querySelector(".original-text-section").textContent.trim();
-                const translatedText = transliterate(originalText);
-                row.querySelector(".translated-text-section").textContent = translatedText;
-            });
-
+        document.querySelectorAll("tbody tr").forEach(row => {
+            const originalText = row.querySelector(".original-text-fio").textContent.trim();
+            const translatedText = transliterate(originalText);
+            row.querySelector(".translated-text-fio").textContent = translatedText;
         });
 
-    </script>
+        document.querySelectorAll("tbody tr").forEach(row => {
+            const originalText = row.querySelector(".original-text-jobs").textContent.trim();
+            const translatedText = transliterate(originalText);
+            row.querySelector(".translated-text-jobs").textContent = translatedText;
+        });
 
+        document.querySelectorAll("tbody tr").forEach(row => {
+            const originalText = row.querySelector(".original-text-depart").textContent.trim();
+            const translatedText = transliterate(originalText);
+            row.querySelector(".translated-text-depart").textContent = translatedText;
+        });
+        document.querySelectorAll("tbody tr").forEach(row => {
+            const originalText = row.querySelector(".original-text-section").textContent.trim();
+            const translatedText = transliterate(originalText);
+            row.querySelector(".translated-text-section").textContent = translatedText;
+        });
+
+    });
+
+</script>
 
 
 </body>

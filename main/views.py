@@ -6,14 +6,31 @@ from django.shortcuts import redirect, render
 from . import forms
 from datetime import datetime
 
+
 def home_view(request):
     return render(request, 'main/index.html')
 
 
+from django.db.models import F
+
+from django.db import connection
+
+# def phones(request):
+#     phones = Phone.objects.select_related('section__departament').order_by('section__departament__number')
+#     print(phones)
+#     return render(request, 'main/phones.html', {'phones': phones})
+
+
+from django.core.paginator import Paginator
+
+
 def phones(request):
-    phones = Phone.objects.all()
-    print(phones[0].section.departament)
-    return render(request, 'main/phones.html', {'page_obj': phones})
+    phones = Phone.objects.select_related('section__departament').order_by('section__departament__number')
+
+    from django.core.cache import cache
+    cache.clear()
+
+    return render(request, 'main/phones.html', {'phones': phones})
 
 
 def sign_in(request):
@@ -26,7 +43,7 @@ def sign_in(request):
     else:
         form = forms.SignInForm()
     current_year = datetime.now().year
-    return render(request, 'main/sign_in.html', {'form': form, "current_year":current_year})
+    return render(request, 'main/sign_in.html', {'form': form, "current_year": current_year})
 
 
 def sign_out(request):
