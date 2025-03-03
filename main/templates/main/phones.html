@@ -155,149 +155,210 @@
             <div class="card-body pt-0">
 
                 <!-- Table starts -->
-                <!-- <div class="table-responsive mt-3"> -->
-                <table id="scrollVertical" class="table text-bg-dark truncate m-0 align-middle">
-                    <thead>
-                    <tr>
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">№</th>
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">Имя и фамилия
-                        </th>
-                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">Цех</th>
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">Отдел</th>
-                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">Должность</th>
-                        <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
-
-
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">Внутренний
-                            номер
-                        </th>
-                        <th class="text-center" style="background-color: #03A3DF; color: white;">Городской номер
-                        </th>
-                        {% if request.user.is_authenticated %}
-                            <th class="text-center" style="background-color: #03A3DF; color: white;">Личный номер
-                            </th>
-                        {% endif %}
-                        <th class="text-center d-none">1</th>
-                        <th class="text-center d-none">2</th>
-                        <th class="text-center d-none">3</th>
-                        <th class="text-center d-none">4</th>
-                        <th class="text-center d-none">5</th>
-                        <th class="text-center d-none">6</th>
-                        <th class="text-center d-none">7</th>
-                        <th class="text-center d-none">8</th>
-                        <th class="text-center d-none">9</th>
-                        <th class="text-center d-none">10</th>
-                        <th class="text-center d-none">num1</th>
-                        <th class="text-center d-none">num2</th>
-                        {% if request.user.is_authenticated %}
-                            <td class="text-center d-none">{{ i.number_2 }}</td>
-                        {% endif %}
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    {% for i in phones %}
+                <div class="table-responsive mt-3">
+                    <table id="scrollVertical" class="table text-bg-dark truncate m-0 align-middle">
+                        <thead>
                         <tr>
-                            <td class="text-center">{{ i.FIO | default_if_none:" " }}</td>
-                            <td class="text-center original-text-fio">{{ i.FIO|default_if_none:" " }}</td>
-                            <td class="text-center d-none translated-text-fio"></td>
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">№</th>
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Имя и фамилия
+                            </th>
+                            <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Цех</th>
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Отдел</th>
+                            <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+                            <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
+
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Должность</th>
+                            <th class="text-center d-none" style="background-color: #03A3DF; color: white;"></th>
 
 
-                            <td class="text-center original-text-depart">{{ i.section.departament }}</td>
-                            <td class="text-center original-text-section">{{ i.section.name|default_if_none:" " }}
-                            </td>
-                            <td class="text-center d-none translated-text-depart"></td>
-                            <td class="text-center d-none translated-text-section"></td>
-
-                            <td class="text-center original-text-jobs">{{ i.job_title|default_if_none:" " }}</td>
-                            <td class="text-center d-none translated-text-jobs"></td>
-
-
-                            <td class="text-center">
-                                {% if i.is_active_vnut_number %}
-                                    {{ i.number_1 | default_if_none:" " }}
-                                {% endif %}
-                            </td>
-                            <td class="text-center">
-                                {% if i.is_active_gorod_number %}
-                                    {{ i.number_21|default_if_none:" " }} <br>
-                                    {{ i.number_22|default_if_none:" " }} <br>
-                                    {{ i.number_23|default_if_none:" " }}
-                                {% endif %}
-
-                            </td>
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Внутренний
+                                номер
+                            </th>
+                            <th class="text-center" style="background-color: #03A3DF; color: white;">Городской номер
+                            </th>
                             {% if request.user.is_authenticated %}
-                                <td class="text-center">
-                                    {{ i.number_31|default_if_none:" " }} <br>
-                                    {{ i.number_32|default_if_none:" " }} <br>
-                                    {{ i.number_33|default_if_none:" " }}
-                                </td>
+                                <th class="text-center" style="background-color: #03A3DF; color: white;">Личный номер
+                                </th>
                             {% endif %}
-                            <td class="text-center d-none ">{{ i.depart.nickname_1 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_2 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_3 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_4 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_5 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_6 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_7 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_8 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_9 }}</td>
-                            <td class="text-center d-none ">{{ i.depart.nickname_10 }}</td>
-                            <td class="text-center d-none">
-                                {% load phone_filters %}
-                                {{ i.number_1|clean_phone }}
-                            </td>
-                            <td class="text-center d-none">
-                                {% if i.number_21 %}
-                                    {% load phone_filters %}
-                                    {{ i.number_21|clean_phone }} <br>
-                                {% endif %}
-
-                                {% if i.number_22 %}
-                                    {% load phone_filters %}
-                                    {{ i.number_22|clean_phone }} <br>
-                                {% endif %}
-
-                                {% if i.number_23 %}
-                                    {% load phone_filters %}
-                                    {{ i.number_23|clean_phone }} <br>
-                                {% endif %}
-                            </td>
-                            {% if request.user.is_authenticated %}
-                                <td class="text-center d-none">
-
-                                    {% if i.number_31 %}
-                                        {% load phone_filters %}
-                                        {{ i.number_31|clean_phone }} <br>
-                                    {% endif %}
-
-                                    {% if i.number_31 %}
-                                        {% load phone_filters %}
-                                        {{ i.number_32|clean_phone }} <br>
-                                    {% endif %}
-
-
-                                    {% if i.number_31 %}
-                                        {% load phone_filters %}
-                                        {{ i.number_33|clean_phone }} <br>
-                                    {% endif %}
-
-                                </td>
+                            {% if request.user.is_authenticated and request.user.username == "only-it-center" %}
+                                <th class="text-center" style="background-color: #03A3DF; color: white;">Домашний
+                                    внутренний
+                                </th>
                             {% endif %}
+                            {% if request.user.is_authenticated and request.user.username == "only-it-center" %}
+                                <th class="text-center" style="background-color: #03A3DF; color: white;">Домашний личный
+                                </th>
+                            {% endif %}
+                            <th class="text-center d-none">1</th>
+                            <th class="text-center d-none">2</th>
+                            <th class="text-center d-none">3</th>
+                            <th class="text-center d-none">4</th>
+                            <th class="text-center d-none">5</th>
+                            <th class="text-center d-none">6</th>
+                            <th class="text-center d-none">7</th>
+                            <th class="text-center d-none">8</th>
+                            <th class="text-center d-none">9</th>
+                            <th class="text-center d-none">10</th>
+                            <th class="text-center d-none">num1</th>
+                            <th class="text-center d-none">num2</th>
+                            <th class="text-center d-none">num2</th>
+                            <th class="text-center d-none">num2</th>
+                            <th class="text-center d-none">num2</th>
+
+
                         </tr>
-                    {% endfor %}
+                        </thead>
+                        <tbody>
+
+                            {% for id, i in phones %}
+                                <tr>
+                                    <td class="text-center">{{ id }}</td>
+                                    <td class="text-center original-text-fio">{{ i.FIO|default_if_none:" " }}</td>
+                                    <td class="text-center d-none translated-text-fio"></td>
 
 
-                    </tbody>
-                </table>
-                <!-- </div> -->
+                                    <td class="text-center original-text-depart">{{ i.section.departament }}</td>
+                                    <td class="text-center original-text-section">{{ i.section.name|default_if_none:" " }}
+                                    </td>
+                                    <td class="text-center d-none translated-text-depart"></td>
+                                    <td class="text-center d-none translated-text-section"></td>
 
+                                    <td class="text-center original-text-jobs">{{ i.job_title|default_if_none:" " }}</td>
+                                    <td class="text-center d-none translated-text-jobs"></td>
+
+
+                                    <td class="text-center">
+                                        {% if i.is_active_vnut_number %}
+                                            {{ i.number_1 | default_if_none:" " }}
+                                        {% endif %}
+                                    </td>
+
+                                    <td class="text-center">
+                                        {% if i.is_active_gorod_number %}
+                                            {{ i.number_21|default_if_none:" " }} <br>
+                                            {{ i.number_22|default_if_none:" " }} <br>
+                                            {{ i.number_23|default_if_none:" " }}
+                                        {% endif %}
+
+                                    </td>
+
+                                    {% if request.user.is_authenticated %}
+                                        <td class="text-center">
+                                            {{ i.number_31|default_if_none:" " }} <br>
+                                            {{ i.number_32|default_if_none:" " }} <br>
+                                            {{ i.number_33|default_if_none:" " }}
+                                        </td>
+                                    {% endif %}
+
+
+                                    {% if request.user.is_authenticated and request.user.username == "only-it-center" %}
+                                        {% if i.home_vnut %}
+                                            <td class="text-center">
+                                                {{ i.home_vnut }}
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if request.user.is_authenticated and request.user.username == "only-it-center" %}
+                                        <td class="text-center">
+                                            {{ i.home_41|default_if_none:" " }} <br>
+                                            {{ i.home_42|default_if_none:" " }} <br>
+                                            {{ i.home_43|default_if_none:" " }}
+                                        </td>
+                                    {% endif %}
+
+                                    <td class="text-center d-none ">{{ i.depart.nickname_1 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_2 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_3 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_4 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_5 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_6 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_7 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_8 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_9 }}</td>
+                                    <td class="text-center d-none ">{{ i.depart.nickname_10 }}</td>
+                                    <td class="text-center d-none">
+                                        {% load phone_filters %}
+                                        {{ i.number_1|clean_phone }}
+
+                                    </td>
+                                    <td class="text-center d-none">
+                                        {% if i.number_21 %}
+                                            {% load phone_filters %}
+                                            {{ i.number_21|clean_phone }} <br>
+                                        {% endif %}
+
+                                        {% if i.number_22 %}
+                                            {% load phone_filters %}
+                                            {{ i.number_22|clean_phone }} <br>
+                                        {% endif %}
+
+                                        {% if i.number_23 %}
+                                            {% load phone_filters %}
+                                            {{ i.number_23|clean_phone }} <br>
+                                        {% endif %}
+                                    </td>
+                                    {% if request.user.is_authenticated %}
+                                        <td class="text-center d-none">
+
+                                            {% if i.number_31 %}
+                                                {% load phone_filters %}
+                                                {{ i.number_31|clean_phone }}  <br>
+                                            {% endif %}
+
+                                            {% if i.number_32 %}
+                                                {% load phone_filters %}
+                                                {{ i.number_32|clean_phone }} <br>
+                                            {% endif %}
+
+
+                                            {% if i.number_33 %}
+                                                {% load phone_filters %}
+                                                {{ i.number_33|clean_phone }} <br>
+                                            {% endif %}
+
+                                        </td>
+                                    {% endif %}
+
+
+                                    <td class="text-center d-none">
+                                        {% if i.home_vnut %}
+                                            {% load phone_filters %}
+                                            {{ i.home_vnut|clean_phone }} <br>
+                                        {% endif %}
+
+                                    </td>
+
+
+                                    <td class="text-center d-none">
+
+                                        {% if i.home_41 %}
+                                            {% load phone_filters %}
+                                            {{ i.home_41|clean_phone }}  <br>
+                                        {% endif %}
+
+                                        {% if i.home_42 %}
+                                            {% load phone_filters %}
+                                            {{ i.home_42|clean_phone }} <br>
+                                        {% endif %}
+
+
+                                        {% if i.home_43 %}
+                                            {% load phone_filters %}
+                                            {{ i.home_43|clean_phone }} <br>
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+
+
+                </div>
 
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
                       rel="stylesheet"
@@ -370,7 +431,9 @@
             },
             scrollY: "100vh",
             scrollCollapse: true,
-            paging: true
+            paging: true,
+            ordering: false,  // DataTables sortingni o'chiris
+            info: false
         });
     })
 </script>

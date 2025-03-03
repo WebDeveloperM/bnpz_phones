@@ -10,26 +10,10 @@ from datetime import datetime
 def home_view(request):
     return render(request, 'main/index.html')
 
-
-from django.db.models import F
-
-from django.db import connection
-
-# def phones(request):
-#     phones = Phone.objects.select_related('section__departament').order_by('section__departament__number')
-#     print(phones)
-#     return render(request, 'main/phones.html', {'phones': phones})
-
-
-from django.core.paginator import Paginator
-
-
 def phones(request):
-    phones = Phone.objects.select_related('section__departament').order_by('section__departament__number')
-
-    from django.core.cache import cache
-    cache.clear()
-
+    phones_all = Phone.objects.select_related('section__departament').order_by('section__departament__number')
+    phones = [(index + 1, phone) for index, phone in enumerate(phones_all)]
+    print(request.user.username)
     return render(request, 'main/phones.html', {'phones': phones})
 
 
